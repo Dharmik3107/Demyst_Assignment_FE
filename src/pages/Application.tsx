@@ -42,7 +42,9 @@ const Application:React.FC = () => {
   //On click handler for initiating the application
   const handleInitiateApplication = async (event:React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const isApplicationInitiated = true
+    const isApplicationInitiated:IsApplicationInitiated = {
+      isApplicationInitiated: true
+    }
 
     initiateApplicationMutation.mutate(isApplicationInitiated)
   }

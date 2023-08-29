@@ -12,7 +12,7 @@ export interface IsApplicationInitiated{
 
 const initiateApplication = async (isApplicationInitiated:IsApplicationInitiated) => {
   try{
-    const response = await simulateBackendCall(initiateApplicationURI, "POST",  {isApplicationInitiated})
+    const response = await simulateBackendCall(initiateApplicationURI, "POST",  isApplicationInitiated)
     console.log(response)
     return response
   }catch(error){

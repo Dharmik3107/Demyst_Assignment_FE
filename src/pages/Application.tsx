@@ -4,8 +4,10 @@ import {useMutation} from "react-query"
 import { toast } from 'react-toastify'
 
 import FormButton from '../components/common/FormButton'
+
 import simulateBackendCall, { initiateApplicationURI } from '../helper/simulateBackendCall'
 
+//Structure of Body to create POST req to initiate application request
 export interface IsApplicationInitiated{
   isApplicationInitiated: boolean
 }

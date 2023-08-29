@@ -1,4 +1,5 @@
 import {Routes, Route} from "react-router-dom"
+import { ToastContainer } from "react-toastify"
 
 import Application from "./pages/Application"
 import ApplicationForm from "./pages/ApplicationForm"
@@ -7,7 +8,6 @@ import ApplicationOutcome from "./pages/ApplicationOutcome"
 
 import './App.css'
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from "react-toastify"
 
 function App() {
 

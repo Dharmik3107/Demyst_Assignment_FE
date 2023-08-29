@@ -1,7 +1,9 @@
 import axios from "axios";
-import { ApplicationType } from "../pages/BalanceSheetReview";
-import { IsApplicationInitiated } from "../pages/Application";
 
+import type { ApplicationType } from "../pages/BalanceSheetReview";
+import type { IsApplicationInitiated } from "../pages/Application";
+
+//Business Details Data Object Structure
 export interface DataObjectType{
     businessName: string,
     yearEstablished: number,
@@ -9,12 +11,14 @@ export interface DataObjectType{
     accountingProvider: string
 }
 
+//Backend URLS
 const BACKEND:string = "http://localhost:8080/app";
 
 export const initiateApplicationURI = `${BACKEND}/initiate-application`
 export const fetchBalanceSheetURI = `${BACKEND}/fetch-balance-sheet`
 export const submitApplicationURI = `${BACKEND}/submit-application`
 
+//Helper reusable function to interact with backend
 export default async function simulateBackendCall(url:string, method:"POST" | "GET", data?: DataObjectType | IsApplicationInitiated | ApplicationType){
     try{
         let response;

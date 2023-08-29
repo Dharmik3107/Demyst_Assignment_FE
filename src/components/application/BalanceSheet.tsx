@@ -3,8 +3,8 @@ import { useAppSelector } from '../../store/hooks'
 
 const BalanceSheet:React.FC = () => {
 
- const sheet = useAppSelector(state => state.balanceSheet.list)
- console.log(sheet)
+    //Fetching balance sheet from store
+    const sheet = useAppSelector(state => state.balanceSheet.list)
 
   return (
       <table className='w-full max-w-[700px] border-none outline-none shadow-xl'>

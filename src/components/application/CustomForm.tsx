@@ -7,12 +7,12 @@ import FormSelect from '../common/FormSelect'
 import FormButton from '../common/FormButton'
 
 import { useAppDispatch } from '../../store/hooks'
+import { fetchBalanceSheet } from '../../store/slices/balanceSheetSlice'
+import { fetchBusinessDetails } from '../../store/slices/bussinessDetailsSlice'
 
 import type { DataObjectType } from '../../helper/simulateBackendCall'
 import simulateBackendCall, { fetchBalanceSheetURI } from '../../helper/simulateBackendCall'
 import validateFormData, { validateAccountingProvider, validateBusinessName, validateLoanAmount, validateYearEstablished } from '../../helper/validators'
-import { fetchBalanceSheet } from '../../store/slices/balanceSheetSlice'
-import { fetchBusinessDetails } from '../../store/slices/bussinessDetailsSlice'
 
 
 const submitApplication = async (data:DataObjectType) => {

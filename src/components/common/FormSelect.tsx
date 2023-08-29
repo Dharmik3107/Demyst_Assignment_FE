@@ -14,6 +14,7 @@ interface Props {
 
 const FormSelect:React.FC<Props> = ({name, label, required, warning, isInvalid , setFormData}:Props) => {
 
+  //States for Opening Menu and selecting option
   const [isSelectMenuOpen, setSelectMenuOpen] = useState<boolean>(false)
   const [selectedOption, setSelectedOption] = useState<string>("")
 
@@ -21,6 +22,7 @@ const FormSelect:React.FC<Props> = ({name, label, required, warning, isInvalid ,
     setSelectMenuOpen(isSelectMenuOpen => !isSelectMenuOpen)
   }
 
+  //Side effect to send selected option for accounting provider to formdata object in parent component 
   useEffect(()=>{
     if(selectedOption) setFormData(formData => ({...formData, accountingProvider: selectedOption}))
   },[selectedOption, setFormData])

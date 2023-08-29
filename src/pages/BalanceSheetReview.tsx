@@ -9,8 +9,9 @@ import FormButton from '../components/common/FormButton'
 import type { DataObjectType } from '../helper/simulateBackendCall'
 import simulateBackendCall, { submitApplicationURI } from '../helper/simulateBackendCall'
 
-import { useAppSelector } from '../store/hooks'
+import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { BalanceSheetItemType } from '../store/slices/balanceSheetSlice'
+import { setDecision } from '../store/slices/decisionSlice';
 
 export interface ApplicationType{
   businessDetails: DataObjectType,
@@ -32,6 +33,7 @@ const BalanceSheetReview:React.FC = () => {
 
   const details = useAppSelector(state => state.businessDetails)
   const sheet = useAppSelector(state => state.balanceSheet.list)
+  const dispatch = useAppDispatch()
 
   const navigate = useNavigate()
 
@@ -44,8 +46,8 @@ const BalanceSheetReview:React.FC = () => {
   const submitApplicationMutation = useMutation(submitApplication, {
     onSuccess: (response) => {
       if(response) {
+        if(response.message) dispatch(setDecision(true))
         toast.success("Application submitted successful")
-        console.log(response)
         navigate("/application-form")
       }
       else toast.error("Application submission was not successful.")

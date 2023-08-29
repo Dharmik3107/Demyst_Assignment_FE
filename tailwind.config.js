@@ -12,7 +12,7 @@ export default {
 		colors: {
 			primaryBlue: "#132235",
 			primarySkiedBlue: "#61C2AB",
-			lightBlue: "#132235",
+			secondaryLightBlue: "#132235",
 			...colors,
 		},
 		fontFamily: {

@@ -1,7 +1,10 @@
 import axios from "axios";
 
-interface DataObjectType{
-    [key:string]: string | number | boolean
+export interface DataObjectType{
+    businessName: string,
+    yearEstablished: number,
+    loanAmount: number,
+    accountingProvider: string
 }
 
 const BACKEND:string = "http://localhost:8080/app";
@@ -10,7 +13,7 @@ export const initiateApplicationURI = `${BACKEND}/initiate-application`
 export const fetchBalanceSheetURI = `${BACKEND}/fetch-balance-sheet`
 export const submitApplicationURI = `${BACKEND}/submit-application`
 
-export default async function simulateBackendCall(url:string, method:"POST" | "GET", data:DataObjectType){
+export default async function simulateBackendCall(url:string, method:"POST" | "GET", data?: DataObjectType | boolean){
     try{
         let response;
         switch (method){

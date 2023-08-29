@@ -9,7 +9,7 @@ import simulateBackendCall, { initiateApplicationURI } from '../helper/simulateB
 
 const initiateApplication = async (isApplicationInitiated:boolean) => {
   try{
-    const response = await simulateBackendCall(initiateApplicationURI, "POST",  {isApplicationInitiated})
+    const response = await simulateBackendCall(initiateApplicationURI, "POST",  isApplicationInitiated)
     return response
   }catch(error){
     console.error(error)

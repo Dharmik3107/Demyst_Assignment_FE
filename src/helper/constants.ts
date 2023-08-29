@@ -1,0 +1,1 @@
+export const ACCOUNTING_PROVIDERS:string[] = ["Xero", "MYOB"]

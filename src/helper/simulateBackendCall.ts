@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ApplicationType } from "../pages/BalanceSheetReview";
+import { IsApplicationInitiated } from "../pages/Application";
 
 export interface DataObjectType{
     businessName: string,

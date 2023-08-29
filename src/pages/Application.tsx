@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import FormButton from '../components/common/FormButton'
 import simulateBackendCall, { initiateApplicationURI } from '../helper/simulateBackendCall'
 
-interface IsApplicationInitiated{
+export interface IsApplicationInitiated{
   isApplicationInitiated: boolean
 }
 

@@ -6,10 +6,14 @@ import { toast } from 'react-toastify'
 import FormButton from '../components/common/FormButton'
 import simulateBackendCall, { initiateApplicationURI } from '../helper/simulateBackendCall'
 
+interface IsApplicationInitiated{
+  isApplicationInitiated: boolean
+}
 
-const initiateApplication = async (isApplicationInitiated:boolean) => {
+const initiateApplication = async (isApplicationInitiated:IsApplicationInitiated) => {
   try{
-    const response = await simulateBackendCall(initiateApplicationURI, "POST",  isApplicationInitiated)
+    const response = await simulateBackendCall(initiateApplicationURI, "POST",  {isApplicationInitiated})
+    console.log(response)
     return response
   }catch(error){
     console.error(error)
@@ -36,7 +40,7 @@ const Application:React.FC = () => {
   })
 
   //On click handler for initiating the application
-  const handleInitiateApplication = async (event:React.MouseEvent<HTMLFormElement>) => {
+  const handleInitiateApplication = async (event:React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault()
     const isApplicationInitiated = true
 

@@ -6,9 +6,13 @@ import FormInput from '../common/FormInput'
 import FormSelect from '../common/FormSelect'
 import FormButton from '../common/FormButton'
 
+import { useAppDispatch } from '../../store/hooks'
+
 import type { DataObjectType } from '../../helper/simulateBackendCall'
 import simulateBackendCall, { fetchBalanceSheetURI } from '../../helper/simulateBackendCall'
 import validateFormData, { validateAccountingProvider, validateBusinessName, validateLoanAmount, validateYearEstablished } from '../../helper/validators'
+import { fetchBalanceSheet } from '../../store/slices/balanceSheetSlice'
+import { fetchBusinessDetails } from '../../store/slices/bussinessDetailsSlice'
 
 
 const submitApplication = async (data:DataObjectType) => {
@@ -48,12 +52,16 @@ const CustomForm:React.FC = () => {
     const [formData, setFormData] = useState<DataObjectType>(initialFormState)
     const [isformDataValid, setFormDataValid] = useState<ValidatorObjectType>(initialValidatorState)
 
+    //Reducer hooks
+    const dispatch = useAppDispatch()
+
     const navigate = useNavigate()
 
     //Using React Query's useMutation hook for requesting balance sheet
     const submitApplicationMutation = useMutation(submitApplication, {
         onSuccess:(response) => {
             console.log(response)
+            dispatch(fetchBalanceSheet(response.message))
             navigate("/review-balance-sheet")
         },
         onError: (error) => {
@@ -90,7 +98,10 @@ const CustomForm:React.FC = () => {
         setFormDataValid({...isformDataValid, ...validateFields})
         
         console.log(formData)
-        if(validateFormData(formData)) submitApplicationMutation.mutate(formData)
+        if(validateFormData(formData)) {
+            dispatch(fetchBusinessDetails(formData))
+            submitApplicationMutation.mutate(formData)
+        }
     }
 
   return (

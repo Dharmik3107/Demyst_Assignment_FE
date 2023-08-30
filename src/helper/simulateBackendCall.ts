@@ -12,7 +12,7 @@ export interface DataObjectType{
 }
 
 //Backend URLS
-const BACKEND:string = "http://localhost:8080/app";
+const BACKEND:string = "http://localhost:3000/app";
 
 export const initiateApplicationURI = `${BACKEND}/initiate-application`
 export const fetchBalanceSheetURI = `${BACKEND}/fetch-balance-sheet`
@@ -24,7 +24,8 @@ export default async function simulateBackendCall(url:string, method:"POST" | "G
         let response;
         switch (method){
             case "POST":
-                response = await axios.post(url, data);
+                if(data) response = await axios.post(url, data);
+                else throw "Missing Parameters"
                 break;
             default:
                 response = await axios.get(url)
@@ -32,6 +33,7 @@ export default async function simulateBackendCall(url:string, method:"POST" | "G
         return response.data
     }catch(error){
         console.error(error)
+        throw error
     }
 }
 

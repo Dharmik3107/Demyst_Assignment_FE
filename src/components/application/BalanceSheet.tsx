@@ -7,7 +7,7 @@ const BalanceSheet:React.FC = () => {
     const sheet = useAppSelector(state => state.balanceSheet.list)
 
   return (
-      <table className='w-full max-w-[700px] border-none outline-none shadow-xl'>
+      <table role="balance-sheet-table" className='w-full max-w-[700px] border-none outline-none shadow-xl'>
         <thead className='w-full h-8'>
             <tr className='bg-primarySkiedBlue'>
                 <th className='text-center border-[1px] border-solid border-gray-400'>Year</th>

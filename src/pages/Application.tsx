@@ -53,7 +53,7 @@ const Application:React.FC = () => {
 
   return (
     <form onSubmit={handleInitiateApplication} className='w-full h-full flex justify-center items-center px-2'>
-      <FormButton type='submit' displayText='Initiate Application'/>
+      <FormButton type='submit' data-testid="initiation" displayText='Initiate Application'/>
     </form>
   )
 }

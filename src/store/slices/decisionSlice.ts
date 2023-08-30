@@ -1,12 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
+interface DecisionType {
+    preAssessment: number,
+}
+
+const initialState:DecisionType = {
+    preAssessment: 0
+}
 
 const decisionSlice = createSlice({
     name:"decision",
-    initialState: false,
+    initialState,
     reducers:{
-        setDecision:(state,action:PayloadAction<boolean>)=>{
+        setDecision:(state,action:PayloadAction<DecisionType>)=>{
             if(action.payload) state = action.payload
             else return state
             return state

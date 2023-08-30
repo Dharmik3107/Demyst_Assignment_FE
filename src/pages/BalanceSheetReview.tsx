@@ -46,9 +46,9 @@ const BalanceSheetReview:React.FC = () => {
   const submitApplicationMutation = useMutation(submitApplication, {
     onSuccess: (response) => {
       if(response) {
-        if(response.message) dispatch(setDecision(true))
+        if(response.message) dispatch(setDecision(response.message))
         toast.success("Application submitted successful")
-        navigate("/application-form")
+        navigate("/outcome")
       }
       else toast.error("Application submission was not successful.")
     },

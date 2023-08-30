@@ -12,7 +12,7 @@ export interface DataObjectType{
 }
 
 //Backend URLS
-const BACKEND:string = "http://localhost:3000/app";
+const BACKEND:string = "http://localhost:8000/app";
 
 export const initiateApplicationURI = `${BACKEND}/initiate-application`
 export const fetchBalanceSheetURI = `${BACKEND}/fetch-balance-sheet`

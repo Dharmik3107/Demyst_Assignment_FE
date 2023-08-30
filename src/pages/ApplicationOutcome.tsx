@@ -18,7 +18,7 @@ const ApplicationOutcome:React.FC = () => {
 
   return (
     <div className='w-full h-full flex justify-center items-center'>
-      <h1 className='text-3xl border-2 border-solid border-primarySkiedBlue p-4'>{decision === true ? "Your loan application has been approved" : "Your loan application has been rejected"}</h1>
+      <h1 className='text-2xl border-2 border-solid border-primarySkiedBlue p-4 flex flex-col justify-center items-start'>{decision ? <><span>Application has been approved</span><span>PreAssessment Score: {decision.preAssessment}</span></> : "Your loan application has been rejected"}</h1>
     </div>
   )
 }
